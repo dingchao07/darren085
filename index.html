@@ -1,0 +1,270 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>動作實驗室 GEO 官網健檢</title><style>
+:root{
+ --ink:#1E2433;--muted:#5E6575;--line:#DDE2EC;--ground:#F6F8F5;--surface:#FFFFFF;--tint:#E6EAF4;--tint2:#F0F3F8;
+ --accent:#202D70;--band:#E6EAF4;--bandtext:#1E2433;--bandmuted:#A9B3CF;
+ --red:#B23A34;--redt:#FAEAE7;--redl:#E9C6C3;--gold:#8A6417;--goldt:#F8F0DE;--goldl:#E4D2AC;
+ --green:#2F6B4F;--greent:#E7F1EA;--greenl:#BBD8C6;--teal:#3A4256;--tealt:#EEF0F5;
+ --k1:#202D70;--k2:#7FA600;--k3:#536942;--k4:#54595F;--k5:#DAB200;--k6:#1E2433;--k7:#B9C0CF;
+ --hero1:#FFFFFF;--hero2:#E3E8F3;--herotext:#1E2433;--heroglass:rgba(255,255,255,.82);--heroline:#CCD4E6;
+ --shadow:0 1px 3px rgba(30,36,51,.06);
+}
+
+
+*{margin:0;padding:0;box-sizing:border-box}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+body{font-family:'Noto Serif TC','Noto Sans TC','PingFang TC','Microsoft JhengHei',serif;background:var(--ground);color:var(--ink);font-size:14.5px;line-height:1.8}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--k1);outline-offset:2px;border-radius:3px}
+td.n,.tile .v,.st .n,.br .v,.num{font-variant-numeric:tabular-nums}
+h1,h2,h3,h4{text-wrap:balance;font-family:'Noto Serif TC','Noto Sans TC',serif}
+.hero{background:linear-gradient(140deg,var(--hero1) 0%,var(--hero2) 78%);color:var(--herotext);padding-block:calc(52px + env(safe-area-inset-top,0px)) 44px;padding-inline:max(16px,calc((100% - 1180px)/2 + 32px));border-bottom:4px solid var(--k1)}
+.eye{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin-bottom:12px;color:var(--accent)}
+.hero h1{font-size:clamp(28px,5vw,42px);font-weight:900;line-height:1.2}
+.hero h1 span{display:block;font-weight:700;color:var(--accent)}
+.hero .lead{font-size:16px;max-width:64ch;opacity:.9;margin:16px 0 22px;line-height:1.9}
+.hero .meta{display:flex;gap:24px;flex-wrap:wrap;font-size:12.5px;opacity:.85;margin-bottom:26px}
+.hero .meta b{display:block;font-size:13.5px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.hero .lead,.hero h1{overflow-wrap:anywhere}
+.st{background:var(--heroglass);border:1px solid var(--heroline);border-radius:12px;padding:15px 16px}
+.st .n{font-size:27px;font-weight:800;line-height:1.1;color:var(--accent)}
+.st .u{font-size:12px;opacity:.85;margin-top:4px;font-weight:600}
+.st .l{font-size:11.5px;opacity:.68;margin-top:5px;line-height:1.5}
+.layout{max-width:1180px;margin:0 auto;padding-block:34px 56px;padding-inline:32px;display:grid;grid-template-columns:196px minmax(0,1fr);gap:30px;align-items:start}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 6px}
+nav.toc .h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:4px 12px 8px}
+nav.toc a{display:block;font-size:12.5px;color:var(--ink);text-decoration:none;padding:5px 12px;border-radius:7px;border-left:3px solid transparent}
+nav.toc a:hover{background:var(--tint2)}
+nav.toc a.on{background:var(--tint);color:var(--accent);font-weight:700;border-left-color:var(--k1)}
+main{min-width:0;display:grid;gap:24px}
+section.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px 34px;box-shadow:var(--shadow);scroll-margin-top:20px;min-width:0;overflow-wrap:anywhere}
+section.card h2{font-size:21px;font-weight:900;line-height:1.35;margin-bottom:8px}
+section.card h2 .no{color:var(--accent);margin-right:6px}
+section.card h2 small{display:block;font-size:13px;color:var(--muted);font-weight:500;margin-top:3px}
+h3{font-size:15.5px;font-weight:800;margin:26px 0 10px;padding-left:10px;border-left:3px solid var(--k1)}
+p{margin-bottom:10px;max-width:74ch}
+p.note{font-size:12.5px;color:var(--muted);margin:4px 0 12px;line-height:1.7}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}
+.tiles.t3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--tint2)}
+.tile .k{font-size:12px;color:var(--muted);font-weight:700}
+.tile .v{font-size:25px;font-weight:800;line-height:1.2;margin:4px 0 3px}
+.tile .v small{font-size:13px;color:var(--muted);font-weight:600}
+.tile .v.bad{color:var(--red)} .tile .v.ok{color:var(--green)} .tile .v.gold{color:var(--gold)}
+.tile .s{font-size:12px;line-height:1.6}
+.finds{display:grid;gap:9px;margin:14px 0 4px}
+.f{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start;padding:12px 16px;border-radius:10px;background:var(--tint2);border:1px solid var(--line)}
+.f.bad{background:var(--redt);border-color:var(--redl)} .f.warn{background:var(--goldt);border-color:var(--goldl)} .f.ok{background:var(--greent);border-color:var(--greenl)}
+.f i{font-style:normal;width:32px;height:32px;border-radius:8px;background:#3F3A34;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.f.bad i{background:#9E2B25} .f.warn i{background:#8A6417} .f.ok i{background:#2F6B4F}
+.f div{font-size:13.8px;line-height:1.75}
+.sum{margin-top:22px;background:var(--band);color:var(--bandtext);border-radius:12px;padding:16px 20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.sum .lb{font-size:12px;font-weight:900;letter-spacing:.14em;border:1px solid var(--bandmuted);border-radius:6px;padding:3px 8px;white-space:nowrap;margin-top:2px}
+.sum ul{list-style:none;display:grid;gap:6px;margin:0}
+.sum li{font-size:14.5px;line-height:1.8;padding-left:16px;position:relative}
+.sum li::before{content:'';position:absolute;left:2px;top:.78em;width:6px;height:6px;border-radius:50%;background:var(--k1)}
+.bars{margin:12px 0;display:grid;gap:7px}
+.br{display:grid;grid-template-columns:186px minmax(0,1fr) 118px;gap:12px;align-items:center;font-size:13px}
+.br .l{text-align:right;font-weight:700;line-height:1.35}
+.br .t{height:16px;background:var(--tint2);border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.br .fl{height:100%;border-radius:4px}
+.br .v{font-weight:800} .br .v small{font-weight:500;color:var(--muted);margin-left:4px}
+.tw{overflow-x:auto;max-width:100%;margin:10px 0 6px;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:12.8px;min-width:640px}
+th{background:var(--tint);text-align:left;padding:9px 10px;font-weight:800;font-size:12px;white-space:nowrap}
+td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top;line-height:1.65}
+tr.me td{background:var(--tint);font-weight:700}
+tr.rival td{background:var(--tealt)}
+td.n,th.n{text-align:right;white-space:nowrap}
+td.small{font-size:11.8px;color:var(--muted)}
+.tag{display:inline-block;padding:1px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;line-height:1.7;background:var(--tint2);color:var(--muted);border:1px solid var(--line)}
+.tag.g{background:var(--greent);color:var(--green);border-color:transparent} .tag.r{background:var(--redt);color:var(--red);border-color:transparent} .tag.o{background:var(--goldt);color:var(--gold);border-color:transparent} .tag.t{background:var(--tealt);color:var(--teal);border-color:transparent} .tag.me{background:var(--tint);color:var(--accent);border-color:transparent}
+.callout{border-left:4px solid var(--k2);background:var(--tint2);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:13.8px}
+.callout.bad{border-color:var(--red);background:var(--redt)} .callout.warn{border-color:var(--gold);background:var(--goldt)} .callout.ok{border-color:var(--green);background:var(--greent)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:12px 0}
+.pcard{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--surface)}
+.pcard h4{font-size:14.5px;font-weight:800;margin-bottom:6px}
+.pcard .big{font-size:24px;font-weight:800;line-height:1.15}
+.pcard .big small{font-size:12px;color:var(--muted);font-weight:600;margin-left:6px}
+.pcard ul{list-style:none;margin-top:8px}
+.pcard li{font-size:12.8px;padding:4px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
+.pcard li:last-child{border-bottom:none}
+.pcard .src{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.65}
+.stack{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:8px 0 6px}
+.stack i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.8px;color:var(--muted);margin-top:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.theme{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin:10px 0;background:var(--surface)}
+.theme h4{font-size:14.5px;font-weight:800;margin-bottom:4px;display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tq{font-size:13.4px;line-height:1.85;border-left:3px solid var(--k2);padding:4px 0 4px 12px;margin:8px 0;color:var(--ink)}
+.tq.neg{border-left-color:var(--red)}
+.tq .m{display:block;font-size:11.6px;color:var(--muted);margin-top:3px}
+.qcard{border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:9px 0;background:var(--surface)}
+.qcard .qh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:14px;font-weight:800;margin-bottom:6px}
+.qcard .qm{display:flex;gap:16px;flex-wrap:wrap;font-size:12.3px;color:var(--muted)}
+.qcard .qm b{color:var(--ink)}
+.layerh{display:flex;gap:10px;align-items:center;margin:20px 0 6px;font-size:13px;font-weight:800;color:var(--accent)}
+.layerh::after{content:'';flex:1;height:1px;background:var(--line)}
+.fix{display:grid;grid-template-columns:62px minmax(0,1fr);gap:16px;border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:10px}
+.fix .lv{font-weight:800;font-size:13px;text-align:center;border-radius:8px;padding:7px 4px;color:#fff;align-self:start}
+.fix .lv.red{background:#9E2B25} .fix .lv.orange{background:#8A6417} .fix .lv.teal{background:#3F3A34} .fix .lv.green{background:#2F6B4F}
+.fix h4{font-size:14.8px;font-weight:800;margin-bottom:4px}
+.fix .why{font-size:13px;margin-bottom:8px;line-height:1.75}
+.fix .lock{font-size:12px;color:var(--muted);background:var(--tint2);border:1px dashed var(--line);border-radius:8px;padding:6px 10px;display:inline-block}
+.verdict{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.vcol{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--tint2)}
+.vcol h4{font-size:13px;font-weight:900;letter-spacing:.06em;margin-bottom:8px}
+.vcol.ok h4{color:var(--green)} .vcol.bad h4{color:var(--red)} .vcol.warn h4{color:var(--gold)}
+.vcol ul{list-style:none;display:grid;gap:8px}
+.vcol li{font-size:13px;line-height:1.7;padding-left:14px;position:relative}
+.vcol li::before{content:'';position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
+.step{border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:12.8px;line-height:1.7;background:var(--tint2)}
+.step b{display:block;color:var(--accent);font-size:13px;margin-bottom:3px}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:14px 0}
+.plan{border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;background:var(--surface)}
+.plan.rec{border:2px solid var(--k1)}
+.plan .ph{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.plan .code{width:36px;height:36px;border-radius:10px;background:#3F3A34;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.plan.rec .code{background:#9E2B25}
+.plan .ph b{font-size:15px;display:block;line-height:1.35}
+.plan .ph small{font-size:11.8px;color:var(--muted);line-height:1.5;display:block}
+.plan .recflag{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.08em;margin-bottom:6px}
+.plan ul{list-style:none;flex:1;margin:4px 0 10px}
+.plan li{font-size:12.8px;line-height:1.65;padding:5px 0 5px 14px;position:relative;border-bottom:1px dashed var(--line)}
+.plan li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:2px;background:var(--k1)}
+.plan .fit{font-size:12.5px;background:var(--tint2);border-radius:8px;padding:8px 10px;line-height:1.65}
+.plan .price{margin-top:10px;font-size:12px;color:var(--muted);text-align:right}
+footer{max-width:1180px;margin:0 auto;padding-block:8px calc(40px + env(safe-area-inset-bottom,0px));padding-inline:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:11.8px;color:var(--muted)}
+footer img{height:22px;border-radius:4px;opacity:.85}
+@media(max-width:980px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.plans,.verdict{grid-template-columns:1fr}}
+@media(max-width:860px){.layout{grid-template-columns:1fr;padding-inline:16px}nav.toc{position:static}.tiles,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles.t3{grid-template-columns:1fr}.two{grid-template-columns:1fr}section.card{padding:22px 18px}.br{grid-template-columns:96px minmax(0,1fr) 88px}footer{padding-inline:16px}}
+@media(max-width:480px){.stats,.tiles,.steps{grid-template-columns:1fr 1fr}.sum{grid-template-columns:1fr}.fix{grid-template-columns:1fr}}
+@media print{body{background:#fff}nav.toc{display:none}.layout{grid-template-columns:1fr;padding:0}section.card{break-inside:avoid;box-shadow:none}.hero,.sum,.fix .lv,.plan .code{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+:root{
+ --ink:#2E2E30;--muted:#6C6C70;--line:#E4E4E6;--ground:#FFFFFF;--surface:#FFFFFF;--tint:#F5F5F6;--tint2:#FFFFFF;
+ --accent:#202D70;--band:#FFFFFF;--bandtext:#2E2E30;--bandmuted:#8FA0CF;
+ --red:#B23A34;--redt:#FFFFFF;--redl:#E9C6C3;--gold:#8A6417;--goldt:#FFFFFF;--goldl:#E7D6B2;
+ --green:#2F6B4F;--greent:#FFFFFF;--greenl:#BBD8C6;--teal:#4A4A4E;--tealt:#FAFAFA;
+ --k1:#202D70;--k2:#8FA0CF;--k3:#8E8E93;--k4:#4A4A4E;--k5:#4A5A9A;--k6:#2E2E30;--k7:#C7C7CC;
+ --hero1:#FFFFFF;--hero2:#FFFFFF;--herotext:#2E2E30;--heroglass:#FFFFFF;--heroline:#E4E4E6;
+ --shadow:0 1px 2px rgba(0,0,0,.04);
+}
+
+body{background:#fff}
+.hero{background:#fff;border-bottom:3px solid #202D70}
+.st{background:#fff;border:1px solid var(--line)}
+.f i{background:#6C6C70}
+.f.bad i{background:#202D70}.f.warn i{background:#4A5A9A}.f.ok i{background:#4A4A4E}
+.f,.f.bad,.f.warn,.f.ok{background:#fff;border-color:var(--line)}
+.sum{background:#fff;border:1px solid var(--line);border-left:4px solid #202D70}
+.sum .lb{border-color:#202D70;color:#202D70}
+.callout,.callout.bad,.callout.warn,.callout.ok{background:#FAFAFA}
+.tile,.vcol,.step{background:#fff}
+.fix .lv.red{background:#202D70}.fix .lv.orange{background:#4A5A9A}.fix .lv.teal{background:#6C6C70}
+.plan .code{background:#6C6C70}.plan.rec .code{background:#202D70}
+.tag.me{background:#fff;color:#202D70;border:1px solid #8FA0CF}
+.tag.g{background:#fff;color:#2F6B4F;border:1px solid #BBD8C6}
+.tag.r{background:#fff;color:#B23A34;border:1px solid #E9C6C3}
+.tag.o{background:#fff;color:#8A6417;border:1px solid #E7D6B2}
+.tag.t{background:#fff;color:#4A4A4E;border:1px solid var(--line)}
+tr.me td{background:#FAFAFA}
+tr.rival td{background:#fff}
+.qcard.miss{border-left:3px solid #D8D8DC}
+.qcard.hit{border-left:3px solid #202D70}
+
+.score{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;align-items:center;margin:14px 0}
+.ring{width:150px;height:150px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:10px solid var(--tint);position:relative}
+.ring b{font-size:44px;line-height:1;color:var(--accent)} .ring small{font-size:12px;color:var(--muted);margin-top:4px}
+.res{display:inline-block;font-size:11px;font-weight:800;padding:1px 9px;border-radius:20px;border:1px solid var(--line);white-space:nowrap}
+.res.p{color:#2F6B4F;border-color:#BBD8C6}.res.w{color:#8A6417;border-color:#E7D6B2}.res.x{color:#B23A34;border-color:#E9C6C3}
+td code,p code{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#F5F5F6;padding:1px 5px;border-radius:4px}
+@media print{section.card{break-inside:auto!important}.sum,.fix,.f,tr,.plan,.vcol,.step{break-inside:avoid}h3{break-after:avoid}.stats{grid-template-columns:repeat(5,1fr)!important}.plans,.verdict{grid-template-columns:repeat(3,1fr)!important}}
+@media(max-width:480px){.score{grid-template-columns:1fr}.ring{margin:0 auto}}
+</style></head><body><header class="hero"><div class="eye">GEO WEBSITE HEALTH CHECK</div><h1>動作實驗室 Physiomotion Lab<span>GEO 官網健檢報告</span></h1>
+<p class="lead">逐頁檢查 physiomotionlab.com 網站地圖列出的 94 個網址（文章 70、頁面 19、課程 5），從 AI 爬蟲能不能進來、讀不讀得懂、敢不敢引用、外部有沒有人提到四個層面評分。</p>
+<div class="meta"><div>受檢網站<b>physiomotionlab.com</b></div><div>檢查日期<b>2026-10-28</b></div><div>網站系統<b>WordPress＋Rank Math</b></div><div>對照同業<b>生生優動、誠新、中科學善</b></div></div>
+<div class="stats">
+<div class="st"><div class="n">51</div><div class="u">／95 分</div><div class="l">GEO 綜合健檢總分</div></div>
+<div class="st"><div class="n">0</div><div class="u">次</div><div class="l">首頁、關於我們、服務頁出現「台中」</div></div>
+<div class="st"><div class="n">0</div><div class="u">次</div><div class="l">ChatGPT 引用官網（Ahrefs）</div></div>
+<div class="st"><div class="n">22,932</div><div class="u">／月</div><div class="l">官網台灣自然搜尋流量</div></div>
+<div class="st"><div class="n">19</div><div class="u">次</div><div class="l">Google AI 摘要引用官網</div></div>
+</div></header><div class="layout"><nav class="toc" aria-label="目錄"><div class="h">目錄</div><a href="#overview">一、健檢總覽</a><a href="#tech">二、技術可達性</a><a href="#semantic">三、語意架構</a><a href="#authority">四、主題權威</a><a href="#trust">五、內容可信度</a><a href="#signal">六、品牌信號</a><a href="#fixlist">七、優先修復清單</a><a href="#conclusion">八、總結</a><a href="#plans">九、合作方式</a><a href="#method">十、資料說明</a></nav><main><section class="card" id="overview"><h2><span class="no">一、</span>健檢總覽<small>綜合評分與五個主要問題</small></h2>
+<div class="score"><div class="ring"><b>51</b><small>／95 分</small></div><div>
+<p>總分 51／95。衛教文章是官網最強的部分：70 篇文章、481 個關鍵字排在 Google 前 3 名，Google AI 摘要引用官網 19 次。扣分集中在「台中的物理治療所」這個身分：首頁、關於我們、服務頁沒有出現「台中」，結構化資料沒有地址，服務頁沒有流程與費用。</p>
+<p>民眾問 AI「台中自費物理治療推薦」「台中產後骨盆調整哪裡好」時，AI 需要從官網讀到地點、服務項目、治療師與費用。這些資料目前分散在聯繫我們頁和文章文末，首頁與服務頁讀不到。</p></div></div>
+<div class="tw"><table><tr><th>層級</th><th>檢查重點</th><th class="n">配分</th><th class="n">得分</th><th class="n">得分率</th></tr><tr><td>第一層　技術可達性</td><td>AI 爬蟲進不進得來</td><td class="n">通過／未通過</td><td class="n"><b>1 項未通過</b></td><td class="n">—</td></tr><tr><td>第二層　語意架構</td><td>AI 讀不讀得懂頁面在講什麼</td><td class="n">35</td><td class="n"><b>20</b></td><td class="n">57%</td></tr><tr><td>第三層　主題權威</td><td>AI 認不認為你是這個領域的專家</td><td class="n">25</td><td class="n"><b>13</b></td><td class="n">52%</td></tr><tr><td>第四層　內容可信度</td><td>AI 敢不敢引用你的說法</td><td class="n">20</td><td class="n"><b>10</b></td><td class="n">50%</td></tr><tr><td>第五層　品牌信號</td><td>AI 在外部世界有沒有見過你</td><td class="n">15</td><td class="n"><b>8</b></td><td class="n">53%</td></tr><tr><td><b>合計</b></td><td></td><td class="n">95</td><td class="n"><b>51</b></td><td class="n">54%</td></tr></table></div>
+<h3>五個主要問題</h3><div class="finds">
+<div class="f bad"><i>1</i><div><b>首頁、關於我們、服務頁出現「台中」0 次。</b>地址「台中市西區大墩十街 10 號」只寫在聯繫我們頁；70 篇文章中 7 篇提到台中。Ahrefs 查到的 918 個排名關鍵字中，含「台中」的 0 個。</div></div>
+<div class="f bad"><i>2</i><div><b>沒有在地院所的結構化資料。</b>全站 94 個網址沒有 LocalBusiness 或醫療院所類型的標記；首頁的公司實體標記只有名稱與 Logo，「法定名稱」欄位填的是一組 Gmail 信箱，沒有地址、電話、營業時間。</div></div>
+<div class="f bad"><i>3</i><div><b>服務頁沒有流程、時長與費用。</b>5 項服務（含繼續教育課程）寫在同一頁，每項只有幾段介紹；官網找不到單次多久、怎麼評估、多少錢、需不需要轉診單。</div></div>
+<div class="f warn"><i>4</i><div><b>ChatGPT 引用官網 0 次。</b>Google AI 摘要 19 次、Perplexity 14 次、AI Mode 12 次；llms.txt 不存在（網址轉回首頁），robots.txt 格式有誤、沒有宣告網站地圖。</div></div>
+<div class="f warn"><i>5</i><div><b>69 篇文章沒有 H1，27 篇的常見問題段落沒有 FAQPage 標記。</b>文章標題用 H2 呈現；作者在結構化資料裡是「Tammy」「welly」這類暱稱，作者頁設定為不被搜尋引擎收錄。</div></div>
+</div>
+<div class="callout ok"><b>現有的基礎：</b>6 種 AI 與搜尋爬蟲實測都能讀到完整內容；文章以中文撰寫、問句小標、步驟與時程表清楚；關於我們列出 6 位治療師的完整學經歷；Google 地圖 4.9 分 94 則評論。</div>
+<div class="sum"><span class="lb">小結</span><ul><li>總分 51／95：語意架構 20／35、主題權威 13／25、內容可信度 10／20、品牌信號 8／15。</li><li>技術層 1 項未通過（llms.txt），爬蟲存取、HTTPS、速度、網站地圖都可用。</li><li>扣分最多的是在地資訊：首頁與服務頁沒有台中、結構化資料沒有地址、官網沒有費用說明。</li></ul></div></section><section class="card" id="tech"><h2><span class="no">二、</span>技術可達性<small>第一層：AI 爬蟲進不進得來（通過／未通過）</small></h2>
+<p>這一層是前提條件，不計分。任一項未通過，後面幾層的內容就算寫好，AI 也可能讀不到或讀錯。</p>
+<div class="tw"><table><tr><th>檢查項目</th><th>檢查什麼</th><th>實際狀況</th><th>結果</th></tr><tr><td>HTTPS</td><td>全站加密</td><td>http 與 www 都 301 轉到 https://physiomotionlab.com/</td><td><span class="res p">通過</span></td></tr><tr><td>AI 爬蟲實際存取</td><td>用 GPTBot、OAI-SearchBot、ClaudeBot、PerplexityBot、Googlebot、bingbot 身分請求首頁與文章頁</td><td>6 種爬蟲都回應 200、內容完整，沒有被 Cloudflare 驗證頁擋下</td><td><span class="res p">通過</span></td></tr><tr><td>robots.txt</td><td>告訴爬蟲哪些頁面可以讀、網站地圖在哪裡</td><td>檔案存在；「User-agent」與「Allow」寫在同一行，格式不符規範；沒有宣告網站地圖位置</td><td><span class="res w">注意</span></td></tr><tr><td>llms.txt</td><td>提供給 AI 系統的網站說明文件</td><td>/llms.txt 被轉回首頁，檔案不存在</td><td><span class="res x">未通過</span></td></tr><tr><td>網站地圖</td><td>列出要給搜尋引擎讀的網址</td><td>/sitemap_index.xml 存在，94 個網址、有更新日期；/sitemap.xml 轉回首頁；列入 9 個結帳、購物車、登入、註冊等功能頁，其中 7 個可被收錄</td><td><span class="res w">注意</span></td></tr><tr><td>伺服器回應速度</td><td>AI 爬蟲偏好回應快的網站</td><td>內容頁 0.31～1.29 秒；結帳與購物車頁最慢 2.77 秒</td><td><span class="res p">通過</span></td></tr><tr><td>內容輸出方式</td><td>爬蟲不執行 JavaScript 時能不能讀到內容</td><td>WordPress 伺服器直接輸出 HTML，文字都在原始碼裡</td><td><span class="res p">通過</span></td></tr><tr><td>Canonical 標記</td><td>正版網址</td><td>92／94 個網址有設定，且指向自己</td><td><span class="res p">通過</span></td></tr><tr><td>頁面可被索引</td><td>頁面有沒有把爬蟲擋在外面</td><td>只有購物車與結帳 2 頁設定不收錄，其餘可索引</td><td><span class="res p">通過</span></td></tr></table></div>
+<h3>網站地圖裡的功能頁</h3>
+<p>以下 9 個網址是購物、課程平台的功能頁，內容只有表單或系統文字，列在網站地圖裡會被爬蟲當成內容頁讀取：結帳（2 個網址）、購物車、證書、控制台、登入、學員註冊（2 個網址）、講師註冊。</p>
+<div class="sum"><span class="lb">小結</span><ul><li>9 項檢查：通過 6 項、注意 2 項、未通過 1 項。</li><li>未通過：llms.txt 不存在。注意：robots.txt 格式有誤且沒有宣告網站地圖；網站地圖列入 9 個功能頁。</li><li>AI 爬蟲存取、速度與 HTML 輸出都正常，這一層的問題都是設定檔層級，不需要改版網站。</li></ul></div></section><section class="card" id="semantic"><h2><span class="no">三、</span>語意架構<small>第二層：AI 讀不讀得懂頁面在講什麼（20／35）</small></h2>
+<p>AI 進到頁面之後，靠標題層次、頁面摘要、結構化資料和段落寫法判斷「這頁在講什麼、哪一句可以拿來回答」。這一層得分 20／35。</p>
+<div class="tw"><table><tr><th>評分項目</th><th class="n">配分</th><th class="n">得分</th><th>現況</th></tr><tr><td>標題結構 H1／H2</td><td class="n">6</td><td class="n"><b>3</b></td><td>70 篇文章中 69 篇的文章標題用 H2 標記、頁面沒有 H1；文章內的段落小標分層完整；首頁 H1 是英文「PHYSIO MOTION LAB」</td></tr><tr><td>繁體中文內文</td><td class="n">8</td><td class="n"><b>7</b></td><td>全站中文撰寫；文章主內容中位數 1,457 字</td></tr><tr><td>頁面摘要 meta description</td><td class="n">4</td><td class="n"><b>3</b></td><td>94 個網址中 83 個有設定；首頁的頁面摘要寫的是「ACL 術後如何訓練腿後肌」</td></tr><tr><td>在地院所結構化資料</td><td class="n">5</td><td class="n"><b>1</b></td><td>沒有 LocalBusiness／醫療院所類型標記；公司實體標記只有名稱與 Logo，沒有地址、電話、營業時間，「法定名稱」欄位填的是一組 Gmail 信箱</td></tr><tr><td>文章與作者結構化資料</td><td class="n">4</td><td class="n"><b>2</b></td><td>70 篇都有 BlogPosting 標記；作者欄位 50 篇是「Tammy」、6 篇是「welly」，沒有職稱與資格</td></tr><tr><td>問答結構 FAQPage</td><td class="n">4</td><td class="n"><b>1</b></td><td>27 篇文章有「常見問題」段落，FAQPage 標記 0 頁</td></tr><tr><td>可被直接擷取的段落</td><td class="n">4</td><td class="n"><b>3</b></td><td>文章多用問句小標、編號步驟與時程表；18 篇有文章目錄</td></tr><tr><td><b>合計</b></td><td class="n">35</td><td class="n"><b>20</b></td><td></td></tr></table></div>
+<h3>四個核心頁面</h3>
+<div class="tw"><table><tr><th>頁面</th><th>H1</th><th>頁面摘要</th><th class="n">主內容中文字數</th><th class="n">「台中」次數</th><th>結構化資料類型</th></tr><tr><td>首頁</td><td>PHYSIO MOTION LAB</td><td>有</td><td class="n">392</td><td class="n">0</td><td>Article、Organization、WebPage</td></tr><tr><td>關於我們</td><td>PHYSIO MOTION LAB</td><td>有</td><td class="n">906</td><td class="n">0</td><td>AboutPage、Organization</td></tr><tr><td>服務</td><td>PHYSIO MOTION LAB</td><td>有</td><td class="n">1,020</td><td class="n">0</td><td>Article、Organization、WebPage</td></tr><tr><td>聯繫我們</td><td>PHYSIO MOTION LAB</td><td>有</td><td class="n">139</td><td class="n">1</td><td>ContactPage、Organization</td></tr></table></div>
+<p class="note">口徑：只計頁面主內容區，不含頁首選單與頁尾。首頁的頁面摘要內容是「ACL 術後如何訓練腿後肌？物理治療師教導 3 個針對膕繩肌的復健動作…」，與院所介紹無關。</p>
+<div class="finds">
+<div class="f bad"><i>!</i><div><b>結構化資料沒有告訴 AI「這是一家台中的物理治療所」。</b>首頁標記為 Organization，欄位只有名稱「PhysiomotionLab 動作實驗室」、網址、Logo；沒有 LocalBusiness／醫療院所類型，沒有地址、電話、座標、營業時間、服務項目。</div></div>
+<div class="f warn"><i>!</i><div><b>文章標題是 H2，頁面沒有 H1。</b>70 篇文章中 69 篇如此。文章內的段落小標（一、二、三…）層次完整，如〈圓肩〉一篇有 10 個段落小標。</div></div>
+<div class="f warn"><i>!</i><div><b>27 篇文章有常見問題段落，全站 FAQPage 標記 0 頁。</b>問答內容已經寫好，缺標記。</div></div>
+<div class="f warn"><i>!</i><div><b>全站 1,129 張圖片，563 張沒有替代文字。</b></div></div>
+</div>
+<div class="sum"><span class="lb">小結</span><ul><li>語意架構 20／35；扣分最多的是在地院所結構化資料（1／5）。</li><li>文章寫法本身適合被 AI 擷取：中文、問句小標、步驟與時程表；缺的是 H1、FAQPage 與作者資格標記。</li><li>首頁 H1 是英文品牌名，頁面摘要寫的是 ACL 術後腿後肌訓練。</li></ul></div></section><section class="card" id="authority"><h2><span class="no">四、</span>主題權威<small>第三層：AI 認不認為你是這個領域的專家（13／25）</small></h2>
+<p>AI 會引用覆蓋主題最完整、與提問地點相符的網站。這一層得分 13／25。</p>
+<div class="tw"><table><tr><th>評分項目</th><th class="n">配分</th><th class="n">得分</th><th>現況</th></tr><tr><td>衛教知識深度</td><td class="n">7</td><td class="n"><b>6</b></td><td>70 篇文章涵蓋肩頸、膝、骨盆底、孕產、術後、運動傷害；Ahrefs 台灣 918 個排名關鍵字，481 個在前 3 名</td></tr><tr><td>服務說明頁</td><td class="n">5</td><td class="n"><b>1</b></td><td>服務頁一頁帶過 5 項服務（含繼續教育課程），每項只有幾段介紹；沒有獨立服務頁、評估流程、單次時長與費用</td></tr><tr><td>在地相關內容</td><td class="n">5</td><td class="n"><b>1</b></td><td>首頁、關於我們、服務頁「台中」出現 0 次，地址只在聯繫我們頁；70 篇文章中 7 篇提到台中；含「台中」的排名關鍵字 0 個</td></tr><tr><td>就診常見問題</td><td class="n">4</td><td class="n"><b>2</b></td><td>衛教文章有常見問題段落；站上沒有「要不要轉診單、能不能用健保、一次多久、要做幾次」這類就診問答</td></tr><tr><td>內容更新</td><td class="n">4</td><td class="n"><b>3</b></td><td>70 篇中 26 篇是 2026 年發表；最新一篇 2026-08-16，之後沒有新文章</td></tr><tr><td><b>合計</b></td><td class="n">25</td><td class="n"><b>13</b></td><td></td></tr></table></div>
+<h3>民眾會問 AI 的問題，和官網現況</h3>
+<div class="tw"><table><tr><th>民眾會問 AI 的問題類型</th><th>官網現況</th></tr><tr><td>肩頸痠痛、圓肩、膝蓋痛怎麼辦</td><td>有，多篇衛教文章，含自我檢測與居家運動</td></tr><tr><td>產後骨盆、腹直肌分離、尿失禁</td><td>有，2026 年 7 月起多篇孕產主題文章</td></tr><tr><td>台中自費物理治療推薦</td><td>首頁、服務頁沒有台中；排名關鍵字含台中 0 個</td></tr><tr><td>自費物理治療一次多少錢、要做幾次</td><td>沒有</td></tr><tr><td>物理治療所和復健科差在哪、要不要轉診單</td><td>沒有</td></tr><tr><td>術後多久可以開始做物理治療</td><td>有骨折癒合期、韌帶重建等術後主題文章；服務頁術後項目只有兩段介紹</td></tr><tr><td>動作實驗室評價如何</td><td>官網沒有個案或評價內容；Google 地圖 4.9 分 94 則</td></tr></table></div>
+<p class="note">衛教問題官網有完整內容；選院所、比價格、確認地點這三類「要不要來這家」的問題，官網沒有可被引用的頁面。</p>
+<div class="sum"><span class="lb">小結</span><ul><li>主題權威 13／25；衛教知識 6／7，服務說明與在地內容各 1／5。</li><li>70 篇文章、481 個前 3 名關鍵字，衛教主題已有權威。</li><li>最新文章 2026-08-16，之後 2 個多月沒有新文章。</li></ul></div></section><section class="card" id="trust"><h2><span class="no">五、</span>內容可信度<small>第四層：AI 敢不敢引用你的說法（10／20）</small></h2>
+<p>醫療健康內容，AI 會特別檢查作者資格、資料出處與院所身份。這一層得分 10／20。</p>
+<div class="tw"><table><tr><th>評分項目</th><th class="n">配分</th><th class="n">得分</th><th>現況</th></tr><tr><td>治療師資格</td><td class="n">5</td><td class="n"><b>5</b></td><td>關於我們列出 6 位治療師完整學經歷與認證，含物理治療臨床博士、美國骨科專科物理治療師</td></tr><tr><td>文章署名</td><td class="n">4</td><td class="n"><b>2</b></td><td>27 篇文末有「撰文作者｜某某物理治療師」與資格；結構化資料作者是暱稱；作者頁設定為不被搜尋引擎收錄</td></tr><tr><td>參考文獻</td><td class="n">4</td><td class="n"><b>2</b></td><td>70 篇中 25 篇列出參考文獻</td></tr><tr><td>院所資訊一致性</td><td class="n">4</td><td class="n"><b>1</b></td><td>地址、電話、營業時間只出現在聯繫我們頁；首頁與頁尾沒有；結構化資料沒有地址</td></tr><tr><td>服務與費用透明</td><td class="n">3</td><td class="n"><b>0</b></td><td>官網沒有治療服務的費用、單次時長、預約流程說明；商店頁只有線上課程售價</td></tr><tr><td><b>合計</b></td><td class="n">20</td><td class="n"><b>10</b></td><td></td></tr></table></div>
+<h3>作者資訊在三個地方的呈現</h3>
+<div class="tw"><table><tr><th>位置</th><th>現況</th></tr><tr><td>關於我們頁</td><td>6 位治療師的學歷、證照、專長族群完整列出</td></tr><tr><td>文章文末</td><td>27／70 篇有「撰文作者｜林泰汝物理治療師」這類署名與資格條列</td></tr><tr><td>結構化資料（給機器讀的作者欄位）</td><td>Tammy 50 篇、劉 奕辰 13 篇、welly 6 篇、Admin 1 篇；沒有職稱、資格、個人頁連結</td></tr><tr><td>作者頁 /author/…</td><td>4 個作者頁都設定為不被搜尋引擎收錄</td></tr></table></div>
+<div class="sum"><span class="lb">小結</span><ul><li>內容可信度 10／20；治療師資格滿分，服務與費用透明 0 分。</li><li>資格資料已經存在於關於我們頁，結構化資料與作者頁沒有接上。</li><li>70 篇中 25 篇有參考文獻，27 篇有治療師署名。</li></ul></div></section><section class="card" id="signal"><h2><span class="no">六、</span>品牌信號<small>第五層：AI 在外部世界有沒有見過你（8／15）</small></h2>
+<p>AI 判斷一家院所可不可信，會看其他網站有沒有連到它、搜尋引擎有沒有收錄、AI 平台是否已經引用它。這一層得分 8／15。</p>
+<div class="tw"><table><tr><th>評分項目</th><th class="n">配分</th><th class="n">得分</th><th>現況</th></tr><tr><td>外部連結權威</td><td class="n">5</td><td class="n"><b>1</b></td><td>Ahrefs 網域評分 5，有 931 個網域連到官網；生生優動 29</td></tr><tr><td>搜尋引擎能見度</td><td class="n">3</td><td class="n"><b>2</b></td><td>台灣月自然流量 22,932；含「台中」的排名關鍵字 0 個</td></tr><tr><td>AI 平台引用</td><td class="n">4</td><td class="n"><b>2</b></td><td>Google AI 摘要 19 次、Perplexity 14 次、AI Mode 12 次、Copilot 7 次、Gemini 5 次、ChatGPT 0 次</td></tr><tr><td>第三方評價與社群</td><td class="n">3</td><td class="n"><b>3</b></td><td>Google 地圖 4.9 分 94 則評論、Facebook 18,411 人追蹤、Podcast 210 集；Threads 台中找物理治療串被點名 34 則</td></tr><tr><td><b>合計</b></td><td class="n">15</td><td class="n"><b>8</b></td><td></td></tr></table></div>
+<h3>與台中同業的外部數字</h3>
+<div class="tw"><table><tr><th></th><th class="n">動作實驗室</th><th class="n">生生優動</th><th class="n">誠新</th><th class="n">中科學善</th></tr><tr><td>Ahrefs 網域評分（0～100）</td><td class="n">5</td><td class="n">29</td><td class="n">0</td><td class="n">0</td></tr><tr><td>台灣自然搜尋關鍵字數</td><td class="n">918</td><td class="n">2,188</td><td class="n">7</td><td class="n">0</td></tr><tr><td>排名前 3 名的關鍵字</td><td class="n">481</td><td class="n">1,101</td><td class="n">3</td><td class="n">0</td></tr><tr><td>台灣月自然流量</td><td class="n">22,932</td><td class="n">64,400</td><td class="n">8</td><td class="n">0</td></tr><tr><td>Google AI 摘要引用（次／頁）</td><td class="n">19／7</td><td class="n">28／14</td><td class="n">—</td><td class="n">—</td></tr><tr><td>Perplexity 引用（次）</td><td class="n">14</td><td class="n">2</td><td class="n">—</td><td class="n">—</td></tr><tr><td>ChatGPT 引用（次）</td><td class="n">0</td><td class="n">0</td><td class="n">—</td><td class="n">—</td></tr></table></div>
+<p class="note">Ahrefs 數據查詢日 2026-10-28。生生優動在台中、新北有多個據點，官網流量為各據點合計。誠新、中科學善官網搜尋流量接近 0，未再查 AI 引用。</p>
+<h3>網域評分與連結數</h3>
+<p>Ahrefs 顯示有 931 個網域連到 physiomotionlab.com，網域評分只有 5。連結數多、評分低，代表連入的網站本身權威偏低；醫療院所、學會、媒體這類權威網站的連結不足。</p>
+<div class="sum"><span class="lb">小結</span><ul><li>品牌信號 8／15；第三方評價與社群滿分，外部連結權威 1／5。</li><li>官網月自然流量 22,932，誠新 8、中科學善 0，生生優動 64,400。</li><li>AI 平台中 Google 系引用最多，ChatGPT 0 次。</li></ul></div></section><section class="card" id="fixlist"><h2><span class="no">七、</span>優先修復清單<small>依對 AI 引用的影響排序</small></h2>
+<p>以下 9 項依影響程度排序：高 3 項、中 4 項、觀察 2 項。每一項只列問題與證據。</p><div class="fix"><div class="lv red">高</div><div><h4>首頁、關於我們、服務頁沒有台中與院所資訊</h4><div class="why">「台中」出現 0 次，地址只在聯繫我們頁；含台中的排名關鍵字 0 個。<br><span style="color:var(--muted);font-size:12px">所屬層級：語意架構／主題權威</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv red">高</div><div><h4>沒有在地院所結構化資料</h4><div class="why">全站沒有 LocalBusiness／醫療院所標記；公司實體標記的法定名稱填的是 Gmail 信箱，沒有地址電話。<br><span style="color:var(--muted);font-size:12px">所屬層級：語意架構</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv red">高</div><div><h4>服務頁沒有流程、時長、費用與就診問答</h4><div class="why">5 項服務擠在同一頁；選院所與比價格的提問，官網沒有可被引用的頁面。<br><span style="color:var(--muted);font-size:12px">所屬層級：主題權威／內容可信度</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv orange">中</div><div><h4>llms.txt 不存在、robots.txt 格式有誤</h4><div class="why">llms.txt 轉回首頁；robots.txt 的 User-agent 與 Allow 寫在同一行，沒有宣告網站地圖。<br><span style="color:var(--muted);font-size:12px">所屬層級：技術可達性</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv orange">中</div><div><h4>文章作者標記是暱稱、作者頁不被收錄</h4><div class="why">結構化資料作者 Tammy 50 篇、welly 6 篇；治療師資格只寫在關於我們與部分文末。<br><span style="color:var(--muted);font-size:12px">所屬層級：內容可信度</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv orange">中</div><div><h4>69 篇文章沒有 H1、27 篇常見問題沒有 FAQPage 標記</h4><div class="why">首頁頁面摘要寫的是 ACL 術後腿後肌訓練。<br><span style="color:var(--muted);font-size:12px">所屬層級：語意架構</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv orange">中</div><div><h4>網站地圖列入 9 個功能頁</h4><div class="why">結帳、購物車、登入、註冊等頁面，7 個可被收錄。<br><span style="color:var(--muted);font-size:12px">所屬層級：技術可達性</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv teal">觀察</div><div><h4>外部連結權威偏低</h4><div class="why">931 個網域連入，網域評分 5；生生優動 29。<br><span style="color:var(--muted);font-size:12px">所屬層級：品牌信號</span></div><span class="lock">執行做法於合作確認後提供</span></div></div><div class="fix"><div class="lv teal">觀察</div><div><h4>文章更新暫停</h4><div class="why">最新文章 2026-08-16；圖片 563／1,129 張沒有替代文字。<br><span style="color:var(--muted);font-size:12px">所屬層級：主題權威</span></div><span class="lock">執行做法於合作確認後提供</span></div></div>
+<div class="sum"><span class="lb">小結</span><ul><li>高影響 3 項都與「台中的物理治療所」這個身分有關：在地資訊、院所結構化資料、服務與費用說明。</li><li>中影響 4 項是網站設定與標記，不需要改版網站或重寫文章。</li><li>每一項對應的服務項目列在第九節。</li></ul></div></section><section class="card" id="conclusion"><h2><span class="no">八、</span>總結<small>現況、風險與機會</small></h2>
+<div class="verdict">
+<div class="vcol"><h4>現況</h4><ul><li>GEO 綜合健檢 51／95 分。</li><li>70 篇衛教文章、481 個前 3 名關鍵字、月自然流量 22,932。</li><li>首頁、關於我們、服務頁「台中」0 次；結構化資料沒有地址。</li></ul></div>
+<div class="vcol bad"><h4>風險</h4><ul><li>官網流量來自全台衛教搜尋，含台中的排名關鍵字 0 個。</li><li>ChatGPT 引用官網 0 次。</li><li>問費用、問流程、問要不要轉診單，官網沒有答案可被引用。</li></ul></div>
+<div class="vcol ok"><h4>機會</h4><ul><li>Google AI 摘要已引用官網 19 次、Perplexity 14 次，衛教文章已被 AI 採用。</li><li>6 位治療師資格、27 篇常見問題段落已經寫好，補標記就能讓 AI 讀到。</li><li>Google 地圖 4.9 分、Threads 台中求推薦串點名 34 則，外部口碑已存在。</li></ul></div>
+</div>
+<h3>與台中同業的對照</h3>
+<div class="tw"><table><tr><th></th><th class="n">動作實驗室</th><th class="n">生生優動</th><th class="n">誠新</th><th class="n">中科學善</th></tr><tr><td>月自然搜尋流量</td><td class="n">22,932</td><td class="n">64,400</td><td class="n">8</td><td class="n">0</td></tr><tr><td>網域評分</td><td class="n">5</td><td class="n">29</td><td class="n">0</td><td class="n">0</td></tr><tr><td>Google AI 摘要引用次數</td><td class="n">19</td><td class="n">28</td><td class="n">—</td><td class="n">—</td></tr></table></div>
+<div class="sum"><span class="lb">小結</span><ul><li>健檢 51／95：衛教內容強，扣分集中在在地資訊、服務說明與作者標記。</li><li>台中同業中，官網流量與 AI 引用只有生生優動在同一級距。</li><li>高影響 3 項都在官網本身，可先處理。</li></ul></div></section><section class="card" id="plans"><h2><span class="no">九、</span>合作方式<small>本報告相當於合作流程的第一步「GEO 健檢」</small></h2>
+<h3>合作流程</h3><div class="steps"><div class="step"><b>步驟一　GEO 健檢</b>免費諮詢，提供完整報告。本報告即此步驟的產出。</div><div class="step"><b>步驟二　GEO 競品分析</b>合作後提供。競品分析、洞察報告、prompt 分析；自家關鍵字結構深度拆解、與競品的關鍵字搜尋差異、內容缺口分析、戰略總結與後續建議。</div><div class="step"><b>步驟三　prompt 分析與內容建置</b>合作後提供。認知層／評估層／決策層 prompt 清單；月報、監測報告、結案報告。</div><div class="step"><b>步驟四　PM 執案 Cue 表</b>合作後提供。排程、分工與驗收節點。</div></div>
+<h3>三種合作方式</h3><p>第七節的 9 項問題分成三類工作：官網體質、站內內容、外站與追蹤。三種方式的差別在誰來做、做多深、有沒有人持續看數據。可單選，也可先從 C 開始再升級。報價另附。</p>
+<div class="plans"><div class="plan rec"><div class="recflag">建議方案</div><div class="ph"><span class="code">A</span><div><b>一條龍：全包保證方案</b><small>GEO 全方位整合代操，一條龍代上稿，保證成效、無效退費</small></div></div><ul><li>前置 <b>官網體質調整（一次性）</b>：AI 爬蟲可訪問性設定、Core Web Vitals 健檢、官網後台 Schema 全面部署、FAQ 主題叢集架構規劃</li><li><b>每月內容</b>：GEO 比較型文章 2 篇、GEO 教學／定義／FAQ 文章 2 篇、外站文章 4 篇、論壇口碑操作 4 篇；進案後依體質彈性置換文章比例（半年 12 篇站內文章）</li><li><b>新聞媒體 20 網聯播</b> 1 組，作為 AI 第三方信任來源</li><li><b>月成效報告</b>、競品分析、關鍵字分析規劃、官網站內 FAQ 分類規劃書</li><li><b>保證成效</b>：40 組關鍵字中 10 組；多上不收費。結案未達標免費延長半年，保證一年達標；一年後仍未被提及、未達標，退費 30%（依比例）</li><li>半年約。第 4 個月期中成效會議、第 7 個月結案會議</li><li>貴所只需：提供服務項目與說明素材、審稿</li></ul><div class="fit">適合：官方來源、外站文章、論壇口碑與監測交由同一團隊執行。</div><div class="price">報價另附</div></div><div class="plan"><div class="ph"><span class="code">B</span><div><b>顧問分工</b><small>我方負責監測、分析與顧問，內容由貴所自行或委由現有夥伴執行</small></div></div><ul><li>前置 <b>官網體質調整（一次性）</b>：AI 爬蟲可訪問性設定、Core Web Vitals 健檢、Schema 全面部署、FAQ 主題叢集架構規劃</li><li><b>GEO 監控月報</b>（年約）：主題檢視、競爭分析、引用分析、回應列表、品牌提及率、聲量佔比、排名、網站引用率</li><li><b>每月一次 1 小時顧問諮詢</b>：對照月報決定下個月要做哪些內容、怎麼改</li><li>競品分析、關鍵字分析規劃由我方提供，內容由貴所執行</li><li>外站可單購 <b>GEO 口碑文章</b>（3 篇一組，依關鍵字分析撰寫，平台依合適配置如 Dcard、Mobile01、方格子；購買 2 組贈 GEO 報告 1 份）</li></ul><div class="fit">適合：已有配合的攝影、小編或部落客，想分工、自己累積做法。</div><div class="price">報價另附</div></div><div class="plan"><div class="ph"><span class="code">C</span><div><b>數據追蹤</b><small>單購 GEO 監控月報，或單次報告</small></div></div><ul><li><b>GEO 監控月報</b>（年約）：延續本次 40 題監測，每月產出。項目：主題檢視、競爭分析、引用分析、回應列表、品牌提及率、聲量佔比、排名、網站引用率</li><li>含每月一次 1 小時顧問諮詢討論</li><li>或 <b>GEO 單次報告</b>（1 份）：競品分析、關鍵字分析規劃執行書、同上八項指標，含單次 2 小時顧問報告解說討論</li><li>可依需求增減問題</li><li>不含技術建置、內容製作與網站修改</li></ul><div class="fit">適合：先確認 AI 的描述與同業動作有沒有變化，再決定要不要投入內容。</div><div class="price">報價另附</div></div></div><p class="note">方案啟動需付 3 個月費用，第三個月起採每季支付。官網架設另議。</p>
+<h3>問題對應到哪些服務項目</h3>
+<div class="tw"><table><tr><th>問題</th><th>對應服務項目</th><th>A 一條龍</th><th>B 顧問分工</th><th>C 數據追蹤</th></tr><tr><td>首頁與服務頁沒有台中與院所資訊</td><td>FAQ 主題叢集架構規劃＋GEO 教學／定義／FAQ 文章</td><td>我方執行</td><td>我方給題目，貴所撰寫</td><td>—</td></tr><tr><td>沒有在地院所結構化資料</td><td>官網後台 Schema 全面部署</td><td>我方執行</td><td>我方執行（一次性專案）</td><td>—</td></tr><tr><td>服務頁沒有流程、費用與就診問答</td><td>GEO 比較型文章＋官網站內 FAQ 分類規劃書</td><td>我方執行</td><td>我方給題目，貴所撰寫</td><td>—</td></tr><tr><td>llms.txt／robots.txt</td><td>官網體質調整（AI 爬蟲可訪問性設定）</td><td>我方執行</td><td>我方執行（一次性專案）</td><td>—</td></tr><tr><td>作者標記、H1、FAQPage</td><td>官網後台 Schema 全面部署</td><td>我方執行</td><td>我方執行（一次性專案）</td><td>—</td></tr><tr><td>網站地圖功能頁</td><td>官網體質調整</td><td>我方執行</td><td>我方執行（一次性專案）</td><td>—</td></tr><tr><td>外部連結權威</td><td>新聞媒體 20 網聯播＋外站文章＋論壇口碑操作</td><td>我方執行</td><td>外站可單購 GEO 口碑文章</td><td>—</td></tr><tr><td>持續追蹤</td><td>月成效報告／GEO 監控月報</td><td>我方執行</td><td>我方提供</td><td>監控月報或單次報告</td></tr></table></div>
+<div class="sum"><span class="lb">小結</span><ul><li>建議方案 A：9 項問題同時涵蓋官網體質、站內內容與外站，A 方案一次涵蓋並附成效保證。</li><li>分階段做法：先處理官網體質與結構化資料（B 的一次性前置），再以 C 每月追蹤台中相關提問中 AI 是否開始引用官網。</li><li>可安排線上會議，逐頁說明第二到第六節的檢查結果。</li></ul></div></section><section class="card" id="method"><h2><span class="no">十、</span>資料說明<small>來源、期間與口徑</small></h2>
+<div class="steps">
+<div class="step"><b>逐頁抓取（2026-10-28）</b>依 physiomotionlab.com/sitemap_index.xml 抓取全部 94 個網址（文章 70、頁面 19、課程 5），解析原始碼的標題、頁面摘要、結構化資料、圖片與主內容文字。</div>
+<div class="step"><b>爬蟲存取測試</b>以 GPTBot、OAI-SearchBot、ClaudeBot、PerplexityBot、Googlebot、bingbot 六種身分請求首頁與一篇文章，記錄回應狀態。</div>
+<div class="step"><b>外部數據</b>網域評分、自然搜尋關鍵字、AI 平台引用次數取自 Ahrefs，查詢日 2026-10-28；含「台中」關鍵字數查詢日 2026-10-27。</div>
+<div class="step"><b>第三方評價</b>Google 地圖、Facebook、Podcast、Threads 數字取自 2026-10-27 口碑聲量數據報告。</div>
+</div>
+<div class="finds">
+<div class="f warn"><i>!</i><div><b>評分以 2026-10-28 線上版本為準。</b>網站內容更新後分數會變動，建議修正後重新檢查。</div></div>
+<div class="f warn"><i>!</i><div><b>中文字數只計頁面主內容區。</b>頁首選單、頁尾不列入。</div></div>
+</div>
+<div class="sum"><span class="lb">小結</span><ul><li>94 個網址全部抓取並逐頁解析，各項數字可回查原始碼。</li><li>外部數據與第三方評價分別註明查詢日期。</li></ul></div></section></main></div><footer><div>確認鍵智創科技股份有限公司</div><div>GEO 官網健檢報告｜2026-10-28</div></footer><script>(function(){var ls=[].slice.call(document.querySelectorAll("nav.toc a"));var ss=ls.map(function(a){return document.querySelector(a.getAttribute("href"))});function on(){var y=window.scrollY+120,i=0;ss.forEach(function(s,k){if(s&&s.offsetTop<=y)i=k});ls.forEach(function(a,k){a.classList.toggle("on",k===i)});}window.addEventListener("scroll",on,{passive:true});on();})();</script></body></html>
